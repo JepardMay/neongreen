@@ -22,13 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  elements.forEach(element => {
-    observer.observe(element);
-  });
-
   window.addEventListener('load', () => {
     document.body.classList.remove('no-animation');
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    elements.forEach(element => {
+      observer.observe(element);
+    });
   });
 });
