@@ -28,20 +28,34 @@
           <button class="hamburger" type="button">
             <span></span><span></span><span></span>
           </button>
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <a href="#" class="link">Gallery</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="link">Services</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="link">About Us</a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="link">Contact</a>
-            </li>
-          </ul>
+          <div class="header__block">
+            <ul class="header__nav-list">
+              <li class="header__nav-item">
+                <a href="#" class="link">Gallery</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="link">Services</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="link">About Us</a>
+              </li>
+              <li class="header__nav-item">
+                <a href="#" class="link">Contact</a>
+              </li>
+            </ul>
+            <button class="theme" type="button">
+              <span class="theme__icon">
+                <svg width="24" height="24">
+                  <use xlink:href="img/sprite.svg#sun"></use>
+                </svg>
+              </span>
+              <span class="theme__icon">
+                <svg width="24" height="24">
+                  <use xlink:href="img/sprite.svg#moon"></use>
+                </svg>
+              </span>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
@@ -270,5 +284,6 @@
   <script type="module" src="cursor.mjs"></script>
   <script type="module" src="header.mjs"></script>
   <script type="module" src="animate-on-scroll.mjs"></script>
+  <script type="module" src="theme.mjs"></script>
 </body>
 </html>

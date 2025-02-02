@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  let resizeTimeout;
+  const handleResize = () => {
+    header.classList.add('no-transition');
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      header.classList.remove('no-transition');
+      if (isMenuOpen) {
+        toggleMenu();
+      }
+    }, 100);
+  };
+
   window.addEventListener('scroll', function () {
     const scrollTop = window.scrollY;
     const scrollBottom = header.offsetHeight;
@@ -31,4 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       header.style.cssText = `--opacity: ${opacity}`;
     }
   });
+
+  window.addEventListener('resize', handleResize);
 });
