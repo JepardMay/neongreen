@@ -8,6 +8,7 @@
   --border-color: rgba(255 255 255 / 50%);
   --bg-color: #292929;
   --bg-deep-color: #1b1b1b;
+  --bg-deep-transparent-color: rgba(27 27 27 / 80%);
   --accent-color: #32ffb7;
   /* Transition */
   --default-transition: 0.3s ease-out;
@@ -151,6 +152,11 @@ button,
   padding: 0 2.5rem;
 }
 
+.accent-color {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
 /* Logo */
 
 .logo {
@@ -159,11 +165,6 @@ button,
   font-size: 1.875rem;
   text-transform: uppercase;
   text-align: center;
-}
-
-.logo__highlight {
-  font-weight: 600;
-  color: var(--accent-color);
 }
 
 /* Title */
@@ -376,8 +377,9 @@ button,
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-color: var(--bg-deep-color);
+  background-color: var(--bg-deep-transparent-color);
   opacity: var(--opacity);
+  backdrop-filter: blur(10px);
 }
 
 .header .container {
@@ -775,19 +777,21 @@ body.no-animations [data-animate] .fade-in {
     z-index: 15;
     top: var(--position-top);
     left: var(--position-left);
-    width: 3.125rem;
-    height: 3.125rem;
+    width: 2.125rem;
+    height: 2.125rem;
     background-color: var(--accent-color);
     border-radius: 50%;
     opacity: 0.5;
-    transform: translate3d(-50%, -50%, 0);
-    transition: opacity var(--slower-transition) 0.3s;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    transition: opacity var(--default-transition) 0.3s,
+      transform var(--default-transition) 0.3s;
     pointer-events: none;
   }
 
   .cursor.transparent {
     opacity: 0;
-    transition: opacity var(--slower-transition);
+    transform: translate3d(-50%, -50%, 0) scale(0);
+    transition: opacity var(--default-transition);
   }
 }
 
@@ -891,9 +895,9 @@ body.no-animations [data-animate] .fade-in {
     overflow-y: auto;
     pointer-events: none;
     visibility: hidden;
-    transition: opacity var(--default-transition),
-      visibility var(--default-transition),
-      transform var(--default-transition);
+    transition: opacity var(--slower-transition),
+      visibility var(--slower-transition),
+      transform var(--slower-transition);
   }
 
   .is-opened .header__nav-list {
